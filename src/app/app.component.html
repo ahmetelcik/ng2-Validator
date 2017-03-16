@@ -1,3 +1,64 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Panel -->
+      <div class="panel panel-default">
+        <!-- Panel Heading -->
+        <div class="panel-heading">
+          <h5>Email Validator Form Example for Angular2</h5>
+        </div>
+        <!-- Panel Heading -->
+        <!-- Panel Body -->
+        <div class="panel-body">
+          <!-- Start Form -->
+          <form #kullaniciForms="ngForm" novalidate>
+
+            <!-- Email Validation -->
+            <div class="form-group has-error" [class.has-error]="email_adress.dirty && email_adress.errors">
+              <label class="control-label">Email Adress </label>
+              <span>( Email Valid {{ email_adress.errors | json }} )</span>
+              <input type="text" class="form-control" emailValidate  placeholder="Email Adress" name="email_adress" #email_adress="ngModel" [(ngModel)]="model.email_adress"  >
+
+              <div class="divss" *ngIf="email_adress.errors && email_adress.dirty">
+                <span class="help-block" *ngIf="email_adress.errors.EmailValidate">
+                    Geçersiz bir Email Adresi Girdiniz
+                </span>
+              </div>
+            </div>
+            <!-- Email Validation -->
+
+            <!-- URL Validation -->
+            <div class="form-group has-error" [class.has-error]="url_adress.dirty && url_adress.errors">
+
+              <label class="control-label">URL Adress </label>
+              <span>( URL {{ url_adress.errors | json }} )</span>
+              <input type="text" class="form-control" urlValidate  placeholder="URL Adress" name="url_adress" #url_adress="ngModel" [(ngModel)]="model.url_adress"  >
+
+              <div class="divss" *ngIf="url_adress.errors && url_adress.dirty">
+                <span class="help-block" *ngIf="url_adress.errors.urlValidate">
+                    Geçersiz bir URL Adresi Girdiniz
+                </span>
+              </div>
+            </div>
+            <!-- URL Validation -->
+
+            <button class="btn btn-success">OK</button>
+
+          </form>
+          <!-- End Form -->
+        </div>
+
+        <!-- Panel Body -->
+        <!-- Panel Footer -->
+        <div class="panel-footer">
+
+
+        </div>
+        <!-- Panel Footer -->
+      </div>
+      <!-- Panel -->
+    </div>
+  </div>
+</div>
+
+
