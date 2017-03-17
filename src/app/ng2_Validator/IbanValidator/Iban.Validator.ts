@@ -23,9 +23,7 @@ export class IbanValidator implements Validator {
     var IbanKontrol = new IbanValidatorClass(value).isvalidIban();
 
     if(IbanKontrol == true){
-     return {
-       IbanValidate : true
-     };
+     return null;
     }else{
       return {
         "IbanValidate" : false

@@ -36,10 +36,10 @@
 
               <div class="divss" *ngIf="iban_no.errors && iban_no.dirty">
 
-                <span class="help-block" *ngIf="iban_no.errors.required == false">
+                <span class="help-block" *ngIf="iban_no.errors.required">
                   required
                 </span>
-                <span class="help-block" *ngIf="iban_no.errors.isblank == false">
+                  <span class="help-block" *ngIf="iban_no.errors.NotBlankValidate == false">
                   Not Blank Hatası
                 </span>
 

@@ -26,7 +26,7 @@ export class NotBlankValidator implements Validator {
       return null;
     }else{
       return {
-        isblank : false
+        NotBlankValidate : false
       }
     }
 
