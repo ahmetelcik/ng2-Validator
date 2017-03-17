@@ -23,11 +23,11 @@ export class NotBlankValidator implements Validator {
     var dene = new NotBlankValidatorClass(value).isBlank();
 
     if(dene == true){
-      return null;
-    }else{
       return {
-        NotBlankValidate : false
+        invalidNotBlankValidate : true
       }
+    }else{
+      return null;
     }
 
 
