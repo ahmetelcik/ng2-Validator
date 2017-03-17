@@ -1,36 +1,36 @@
 import { Directive, forwardRef,Attribute } from '@angular/core';
 import { NG_VALIDATORS, Validator, AbstractControl } from '@angular/forms';
-import { IbanValidatorClass } from './IbanValidator.class';
+import { NotBlankValidatorClass } from './NotBlankValidator.class';
 
 
 @Directive({
-  selector: '[IbanValidate]',
+  selector: '[NotBlankValidate]',
   providers: [
     {
       provide: NG_VALIDATORS,
-      useExisting: forwardRef(() => IbanValidator),
+      useExisting: forwardRef(() => NotBlankValidator),
       multi: true
     }
   ]
 })
-export class IbanValidator implements Validator {
+export class NotBlankValidator implements Validator {
 
 
   public validate(control: AbstractControl): { [key: string]: any }{
 
     let value = control.value;
 
-    var IbanKontrol = new IbanValidatorClass(value).isvalidIban();
+    var dene = new NotBlankValidatorClass(value).isBlank();
 
-    if(IbanKontrol == true){
-     return {
-       IbanValidate : true
-     };
+    if(dene == true){
+      return null;
     }else{
       return {
-        "IbanValidate" : false
+        isblank : false
       }
     }
+
+
 
 
   }

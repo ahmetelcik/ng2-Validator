@@ -20,7 +20,7 @@
               <input type="text" class="form-control" emailValidate  placeholder="Email Adress" name="email_adress" #email_adress="ngModel" [(ngModel)]="model.email_adress"  >
 
               <div class="divss" *ngIf="email_adress.errors && email_adress.dirty">
-                <span class="help-block" *ngIf="email_adress.errors.EmailValidate">
+                <span class="help-block" *ngIf="email_adress.errors.EmailValidate == false">
                     Geçersiz bir Email Adresi Girdiniz
                 </span>
               </div>
@@ -32,12 +32,26 @@
 
               <label class="control-label">IBAN </label>
               <span>( IBAN {{ iban_no.errors | json }} )</span>
-              <input type="text" class="form-control" IbanValidate  placeholder="IBAN" name="iban_no" #iban_no="ngModel" [(ngModel)]="model.iban_no"  >
+              <input type="text" class="form-control" NotBlankValidate IbanValidate required emailValidate placeholder="IBAN" name="iban_no" #iban_no="ngModel" [(ngModel)]="model.iban_no"  >
 
               <div class="divss" *ngIf="iban_no.errors && iban_no.dirty">
-                <span class="help-block" *ngIf="iban_no.errors.iban_no">
-                    Geçersiz bir Iban Numarası Girdiniz
+
+                <span class="help-block" *ngIf="iban_no.errors.required == false">
+                  required
                 </span>
+                <span class="help-block" *ngIf="iban_no.errors.isblank == false">
+                  Not Blank Hatası
+                </span>
+
+                <span class="help-block" *ngIf="iban_no.errors.IbanValidate == false">
+                  Geçersiz IBAN
+                </span>
+
+                <span class="help-block" *ngIf="iban_no.errors.EmailValidate == false">
+                  Geçersiz Email
+                </span>
+
+
               </div>
             </div>
             <!-- IBAN Validation -->
