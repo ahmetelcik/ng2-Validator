@@ -27,20 +27,20 @@
             </div>
             <!-- Email Validation -->
 
-            <!-- URL Validation -->
-            <div class="form-group has-error" [class.has-error]="url_adress.dirty && url_adress.errors">
+            <!-- IBAN Validation -->
+            <div class="form-group has-error" [class.has-error]="iban_no.dirty && iban_no.errors">
 
-              <label class="control-label">URL Adress </label>
-              <span>( URL {{ url_adress.errors | json }} )</span>
-              <input type="text" class="form-control" urlValidate  placeholder="URL Adress" name="url_adress" #url_adress="ngModel" [(ngModel)]="model.url_adress"  >
+              <label class="control-label">IBAN </label>
+              <span>( IBAN {{ iban_no.errors | json }} )</span>
+              <input type="text" class="form-control" IbanValidate  placeholder="IBAN" name="iban_no" #iban_no="ngModel" [(ngModel)]="model.iban_no"  >
 
-              <div class="divss" *ngIf="url_adress.errors && url_adress.dirty">
-                <span class="help-block" *ngIf="url_adress.errors.urlValidate">
-                    Geçersiz bir URL Adresi Girdiniz
+              <div class="divss" *ngIf="iban_no.errors && iban_no.dirty">
+                <span class="help-block" *ngIf="iban_no.errors.iban_no">
+                    Geçersiz bir Iban Numarası Girdiniz
                 </span>
               </div>
             </div>
-            <!-- URL Validation -->
+            <!-- IBAN Validation -->
 
             <button class="btn btn-success">OK</button>
 

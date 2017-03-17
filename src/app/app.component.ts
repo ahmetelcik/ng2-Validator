@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserModel } from './Model/User.model';
 @Component({
@@ -7,9 +7,13 @@ import { UserModel } from './Model/User.model';
 })
 export class AppComponent {
 
-  model = new UserModel("");
+  model = new UserModel("","","");
 
   public constructor(){
+
+  }
+
+  public OnInit(){
 
   }
 }
