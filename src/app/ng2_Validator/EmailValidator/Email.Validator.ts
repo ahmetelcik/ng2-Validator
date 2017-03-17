@@ -1,8 +1,6 @@
 import { Directive, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, Validator, AbstractControl } from '@angular/forms';
-
-/** Email Regex */
-const emailRegex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+import { EmailValidatorClass } from './EmailValidator.class';
 
 
 @Directive({
@@ -23,17 +21,18 @@ export class EmailValidator implements Validator {
 
     let value = control.value;
 
-    if(emailRegex.test(value)){
+    var inValidEmail = new EmailValidatorClass(value).invalidEmail();
 
-      return null;
-
-    }else{
-
-      return {
-        EmailValidate : false
+      if(inValidEmail == true){
+        return {
+          invalidEmailValidate : true
+        }
+      }else{
+        return null;
       }
 
-    }
+
+
 
   }
 
