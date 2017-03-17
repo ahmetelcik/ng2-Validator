@@ -32,7 +32,17 @@
 
               <label class="control-label">IBAN </label>
               <span>( IBAN {{ iban_no.errors | json }} )</span>
-              <input type="text" class="form-control" NotBlankValidate IbanValidate required emailValidate placeholder="IBAN" name="iban_no" #iban_no="ngModel" [(ngModel)]="model.iban_no"  >
+              <input type="text"
+                     class="form-control"
+                     placeholder="IBAN"
+                     name="iban_no"
+                     #iban_no="ngModel"
+                     [(ngModel)]="model.iban_no"
+                     NotBlankValidate
+                     IbanValidate
+                     required
+                     emailValidate
+              >
 
               <div class="divss" *ngIf="iban_no.errors && iban_no.dirty">
 
