@@ -30,7 +30,7 @@
                 #email_adress="ngModel"
                 [(ngModel)]="model.email_adress"
               >
-              <div class="divss" *ngIf="email_adress.errors && email_adress.dirty">
+              <div class="errors-div" *ngIf="email_adress.errors && email_adress.dirty">
                 <span class="help-block" *ngIf="email_adress.errors.invalidEmailValidate">
                     Geçersiz bir Email Adresi Girdiniz
                 </span>
