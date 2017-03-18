@@ -4,7 +4,6 @@ import { EmailValidator } from './EmailValidator/'
 import { IbanValidator} from './IbanValidator';
 import { NotBlankValidator } from './NotBlank/';
 import { IpValidator } from './IpValidator';
-
 @NgModule({
   declarations: [
     EmailValidator,
