@@ -9,7 +9,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## Usage 
 before we will be import to app.module.ts 
 
-``
+```
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -33,7 +33,7 @@ import { Ng2Validator } from './ng2_Validator/'
 export class AppModule { }
 
 
-``
+```
  
 
 ## Document of the Validators
