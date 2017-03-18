@@ -20,14 +20,14 @@ export class IbanValidator implements Validator {
 
     let value = control.value;
 
-    var IbanKontrol = new IbanValidatorClass(value).isvalidIban();
+    var invalidIbanKontrol = new IbanValidatorClass(value).isvalidIban();
 
-    if(IbanKontrol == true){
-     return null;
-    }else{
+    if(invalidIbanKontrol == true){
       return {
-        "IbanValidate" : false
+        "invalidIbanValidate" : true
       }
+    }else{
+     return null;
     }
 
 

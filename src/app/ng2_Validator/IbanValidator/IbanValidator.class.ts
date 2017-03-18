@@ -6,6 +6,7 @@ export class IbanValidatorClass {
 
   private iban:string;
 
+  private inValid: boolean = true;
 
   public constructor(iban: string){
       this.iban = iban;
@@ -24,11 +25,12 @@ export class IbanValidatorClass {
    * @constructor
    */
   private IbanCountryCode(iban_no:string){
-    if(iban_no){
+
       let countryCode = this.iban.substr(0,2);
 
+
       return countryCode;
-    }
+
   }
 
   /**
@@ -36,43 +38,42 @@ export class IbanValidatorClass {
    * @param country_code
    * @returns {any}
    */
-  private findCountryRegex(country_code: string): string{
-    var regex = this.formats[country_code];
+  private findCountryRegex(country_code: string){
+    let regex = this.formats[country_code];
+    if(regex){
+      return '^' + regex + '$';
+    }else{
+      return null;
+    }
 
-    return regex;
   }
+
+
 
   public isvalidIban(): boolean{
 
-    if(this.iban == null){
-      return false;
-    }
-
-
     if(this.iban){
-      // Ülke Kodu
+      //  Get CountryCode
       var IbanCountryCode = this.IbanCountryCode(this.iban);
 
-      // Regex
+      // Get Regex
       var findRegexOfCountry = this.findCountryRegex(IbanCountryCode);
 
-      // Full Regex
-      var strRegExPattern = '^' + findRegexOfCountry + '$';
+      var checkRegex = this.iban.match(new RegExp(findRegexOfCountry,'g'));
 
-      // Iban Varsa
-      if(this.iban){
-        // Regexi Uygula, Bulamazsa Null Dönecek
-        var checkRegex = this.iban.match(new RegExp(strRegExPattern,'g'));
-      }
-
-      // Regex Varsa
+      /** If it have a regex **/
       if(checkRegex){
-        return true;
+        /** If have a regex we can true **/
+        this.inValid = false;
       }else{
-        return false;
+        /** If have not a regex we can true **/
+        this.inValid = true;
       }
 
     }
+
+
+    return this.inValid;
 
   }
 

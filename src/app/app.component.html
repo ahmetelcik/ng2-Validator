@@ -53,11 +53,11 @@
                   Not Blank Hatası
                 </span>
 
-                <span class="help-block" *ngIf="iban_no.errors.IbanValidate == false">
+                <span class="help-block" *ngIf="iban_no.errors.invalidIbanValidate">
                   Geçersiz IBAN
                 </span>
 
-                <span class="help-block" *ngIf="iban_no.errors.invalidEmailValidate == true">
+                <span class="help-block" *ngIf="iban_no.errors.invalidEmailValidate">
                   Geçersiz Email
                 </span>
 
