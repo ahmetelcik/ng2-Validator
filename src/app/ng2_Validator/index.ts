@@ -18,5 +18,5 @@ import { IpValidator } from './IpValidator';
     IpValidator,
   ]
 })
-export class Validators {
+export class Ng2Validator {
 }

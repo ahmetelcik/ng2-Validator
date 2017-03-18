@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { Validators } from './ng2_Validator'
+import { Ng2Validator } from './ng2_Validator/'
 @NgModule({
   declarations: [
     AppComponent
@@ -13,7 +13,7 @@ import { Validators } from './ng2_Validator'
     BrowserModule,
     FormsModule,
     HttpModule,
-    Validators
+    Ng2Validator
   ],
   providers: [],
   bootstrap: [AppComponent]
