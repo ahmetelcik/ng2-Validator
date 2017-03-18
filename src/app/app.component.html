@@ -13,6 +13,9 @@
           <!-- Start Form -->
           <form #kullaniciForms="ngForm" novalidate (submit)="formSubmit(kullaniciForms)">
 
+            <pre>
+              {{ model | json }}
+            </pre>
 
             <!-- Email Validation -->
             <div class="form-group has-error" [class.has-error]="email_adress.dirty && email_adress.errors">
@@ -37,7 +40,6 @@
 
             <!-- IBAN Validation -->
             <div class="form-group has-error" [class.has-error]="iban_no.dirty && iban_no.errors">
-
               <label class="control-label">IBAN </label>
               <span>( IBAN {{ iban_no.errors | json }} )</span>
               <input type="text"
@@ -48,7 +50,6 @@
                      [(ngModel)]="model.iban_no"
                      IbanValidate
               >
-
               <div class="divss" *ngIf="iban_no.errors && iban_no.dirty">
                   <span class="help-block" *ngIf="iban_no.errors.invalidIbanValidate">
                     Geçersiz IBAN
@@ -56,6 +57,26 @@
               </div>
             </div>
             <!-- IBAN Validation -->
+
+            <!-- Ip Adress Validation -->
+            <div class="form-group has-error" [class.has-error]="ip_adress.dirty && ip_adress.errors">
+              <label class="control-label">Ip Adress </label>
+              <span>( IP Adress {{ ip_adress.errors | json }} )</span>
+              <input type="text"
+                     class="form-control"
+                     placeholder="IP Adress"
+                     name="ip_adress"
+                     #ip_adress="ngModel"
+                     [(ngModel)]="model.ip_adress"
+                     IpValidate
+              >
+              <div class="divss" *ngIf="ip_adress.errors && ip_adress.dirty">
+                  <span class="help-block" *ngIf="ip_adress.errors.invalidIpAdress">
+                    Geçersiz IP Adresi
+                  </span>
+              </div>
+            </div>
+            <!-- IP Adress Validation -->
 
             <button class="btn btn-success" >OK</button>
 

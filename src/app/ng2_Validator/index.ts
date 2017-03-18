@@ -3,16 +3,20 @@ import { NgModule } from '@angular/core';
 import { EmailValidator } from './EmailValidator/'
 import { IbanValidator} from './IbanValidator';
 import { NotBlankValidator } from './NotBlank/';
+import { IpValidator } from './IpValidator';
+
 @NgModule({
   declarations: [
     EmailValidator,
     IbanValidator,
-    NotBlankValidator
+    NotBlankValidator,
+    IpValidator,
   ],
   exports: [
     EmailValidator,
     IbanValidator,
-    NotBlankValidator
+    NotBlankValidator,
+    IpValidator,
   ]
 })
 export class Validators {
