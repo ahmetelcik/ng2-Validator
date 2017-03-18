@@ -33,6 +33,7 @@
               <div class="errors-div" *ngIf="email_adress.errors && email_adress.dirty">
                 <span class="help-block" *ngIf="email_adress.errors.invalidEmailValidate">
                     Geçersiz bir Email Adresi Girdiniz
+                  {{ email_adress.errors.invalidEmailValidate }}
                 </span>
               </div>
             </div>
