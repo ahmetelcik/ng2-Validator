@@ -11,7 +11,8 @@
         <!-- Panel Body -->
         <div class="panel-body">
           <!-- Start Form -->
-          <form #kullaniciForms="ngForm" novalidate>
+          <form #kullaniciForms="ngForm" novalidate (submit)="formSubmit(kullaniciForms)">
+
 
             <!-- Email Validation -->
             <div class="form-group has-error" [class.has-error]="email_adress.dirty && email_adress.errors">
@@ -41,7 +42,6 @@
                      NotBlankValidate
                      IbanValidate
                      required
-                     emailValidate
               >
 
               <div class="divss" *ngIf="iban_no.errors && iban_no.dirty">
@@ -65,8 +65,10 @@
               </div>
             </div>
             <!-- IBAN Validation -->
-
-            <button class="btn btn-success">OK</button>
+            <pre>
+              {{ kullaniciForms.valid }}
+            </pre>
+            <button class="btn btn-success" >OK</button>
 
           </form>
           <!-- End Form -->

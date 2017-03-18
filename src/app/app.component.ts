@@ -13,7 +13,11 @@ export class AppComponent {
 
   }
 
-  public OnInit(){
+  public OnInit(Form:NgForm){
+    console.log(Form);
+  }
 
+  public formSubmit(form: NgForm){
+    console.log(form);
   }
 }
