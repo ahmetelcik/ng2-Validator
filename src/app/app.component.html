@@ -18,8 +18,15 @@
             <div class="form-group has-error" [class.has-error]="email_adress.dirty && email_adress.errors">
               <label class="control-label">Email Adress </label>
               <span>( Email Valid {{ email_adress.errors | json }} )</span>
-              <input type="text" class="form-control" emailValidate  placeholder="Email Adress" name="email_adress" #email_adress="ngModel" [(ngModel)]="model.email_adress"  >
-
+              <input
+                type="text"
+                class="form-control"
+                emailValidate
+                placeholder="Email Adress"
+                name="email_adress"
+                #email_adress="ngModel"
+                [(ngModel)]="model.email_adress"
+              >
               <div class="divss" *ngIf="email_adress.errors && email_adress.dirty">
                 <span class="help-block" *ngIf="email_adress.errors.invalidEmailValidate">
                     Geçersiz bir Email Adresi Girdiniz
@@ -39,35 +46,17 @@
                      name="iban_no"
                      #iban_no="ngModel"
                      [(ngModel)]="model.iban_no"
-                     NotBlankValidate
                      IbanValidate
-                     required
               >
 
               <div class="divss" *ngIf="iban_no.errors && iban_no.dirty">
-
-                <span class="help-block" *ngIf="iban_no.errors.required">
-                  required
-                </span>
-                  <span class="help-block" *ngIf="iban_no.errors.invalidNotBlankValidate">
-                  Not Blank Hatası
-                </span>
-
-                <span class="help-block" *ngIf="iban_no.errors.invalidIbanValidate">
-                  Geçersiz IBAN
-                </span>
-
-                <span class="help-block" *ngIf="iban_no.errors.invalidEmailValidate">
-                  Geçersiz Email
-                </span>
-
-
+                  <span class="help-block" *ngIf="iban_no.errors.invalidIbanValidate">
+                    Geçersiz IBAN
+                  </span>
               </div>
             </div>
             <!-- IBAN Validation -->
-            <pre>
-              {{ kullaniciForms.valid }}
-            </pre>
+
             <button class="btn btn-success" >OK</button>
 
           </form>
